@@ -96,6 +96,9 @@ const TabbedContent = () => {
         isFetching={tabContent.isFetching}
         onTabChange={handleTabChange}
       />
+
+      {/* TODO:  Style the error message */}
+      {tabContent.error && <p>{tabContent.errorMessage}</p>}
     </Layout>
   );
 };

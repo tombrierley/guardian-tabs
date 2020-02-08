@@ -2,6 +2,28 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) for speed of development.
 
+## Approach
+
+- I used a bootstrapped WebPack config for speed of getting things set up and there was no real need for a custom configuration
+- React was my front end framework of choice and implmeneted a modern Hooks approach
+- I went for a Container/Component approach and tried to be State managment agnostic as possible, allowing something like Redux to be easily applied and to make the Tabs component more portable
+- I Focussed more on making a robust and portable API utility rather than on visual polish
+- Styled comoponents with a theming was used for styling
+- Choose Fetch over Axios as this can be transpiled for older browsers using Babel
+- I did't do any testing as I didn't think it was acheiveable within the time
+- I didn't use TypeScript/Flow and instead went with prop-types to speed up development
+
+I felt like I've done the majority of the work within the 2 hours, but didn't have time to do the final finese add the polish and extra cross browser and acessibility testing.
+
+- Add functionality to be able to navigate the tabs using the keyboard arrows for accessibiliy
+- I haven't tested and optimised this for performance, best practices or accessibility using a tool like Google Lighthouse
+- I haven't done wide browser testing
+- I wanted to style the error message and generally parse the error response and return that to the user
+- Added transitions after fetching the content
+- General tidying up and reusing of prop types
+
+I've added TODOs within the comments to incicate things I wanted to do but ran out of time.
+
 ## Available Scripts
 
 In the project directory, you can run:

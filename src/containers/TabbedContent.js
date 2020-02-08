@@ -1,7 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import Layout from '../components/Layout';
 
+import Tabs from '../components/Tabs';
+
 import { searchContent } from '../utils/api';
+
+const tabs = [
+  {
+    id: 'uk-news',
+    panelId: 'panel-uk-news',
+    title: 'UK News',
+  },
+  {
+    id: 'football',
+    panelId: 'panel-football',
+    title: 'Football',
+  },
+  {
+    id: 'travel',
+    panelId: 'panel-travel',
+    title: 'Travel',
+  },
+];
 
 const TabbedContent = () => {
   // This could quite easily sit within Redux or Apollo but defining it as component state here
@@ -52,6 +72,14 @@ const TabbedContent = () => {
     });
   };
 
+  const handleTabChange = id => {
+    // Update the active tab id
+    setActiveTab(id);
+
+    // Refetch the content
+    fetchContent({ sectionId: id });
+  };
+
   // Get Initial Content - Renders only on mount
   // TODO: Update eslint config so I don't have to disable that line below
   useEffect(() => {
@@ -60,7 +88,14 @@ const TabbedContent = () => {
 
   return (
     <Layout title="Tabbed Content Example">
-      {tabContent && JSON.stringify(tabContent)}
+      <Tabs
+        label="Articles from the Guardian"
+        tabs={tabs}
+        activeTab={activeTab}
+        content={tabContent.content}
+        isFetching={tabContent.isFetching}
+        onTabChange={handleTabChange}
+      />
     </Layout>
   );
 };

@@ -21,7 +21,7 @@ export const fetchFromAPI = async (url, { onFetching, onSuccess, onError }) => {
 export const searchContent = ({ sectionId, ...options }) => {
   // Fetch API data
   fetchFromAPI(
-    `${process.env.REACT_APP_CONTENT_API_URL}search?section=${sectionId}`,
+    `${process.env.REACT_APP_CONTENT_API_URL}search?section=${sectionId}&order-by=newest&show-fields=trailText&page-size=5`,
     options,
   );
 };

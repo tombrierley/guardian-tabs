@@ -5,7 +5,18 @@ import PropagateLoader from 'react-spinners/PropagateLoader';
 
 import ArticleList from './ArticleList';
 
-const TabPanel = styled.div``;
+const TabPanel = styled.div`
+  min-height: 220px;
+  padding: ${props => props.theme.spacing.base} 0;
+  position: relative;
+`;
+
+const Loader = styled.div`
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+`;
 
 const TabContent = ({ panelId, id, isFetching, activeTab, ...props }) => {
   const isActive = id === activeTab;
@@ -18,7 +29,9 @@ const TabContent = ({ panelId, id, isFetching, activeTab, ...props }) => {
       hidden={!isActive}
     >
       {isFetching || !isActive ? (
-        <PropagateLoader />
+        <Loader>
+          <PropagateLoader />
+        </Loader>
       ) : (
         <ArticleList {...props} />
       )}

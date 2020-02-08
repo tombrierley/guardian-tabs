@@ -6,7 +6,8 @@ import { Helmet } from 'react-helmet';
 import Container from '../styles/Container';
 
 const Main = styled.main`
-  background-color: ${props => props.theme.colors.grey100};
+  background-color: ${props => props.theme.colors.white};
+  padding: ${props => props.theme.spacing.xLarge} 0;
   width: 100%;
 `;
 

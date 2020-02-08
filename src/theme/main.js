@@ -7,6 +7,7 @@ export const colors = {
   grey500: '#585858',
   grey100: '#F4F4F4',
   blue500: '#052962',
+  green500: '#469D93',
 };
 
 const fontSizes = {
